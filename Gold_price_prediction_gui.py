@@ -27,10 +27,10 @@ ttk.Entry(app,textvariable=EUR_to_USD_ratio,width=10).grid(row=3,column=1)
 def prediction():
     global model
     query_data={
-        'Avg. Area Income':[eval(SPX.get())],
-        'Avg. Area House Age':[eval(USO.get())],
-        'Avg. Area Number of Rooms':[eval(SLV.get())],
-        'Area Population':[eval(EUR_to_USD_ratio.get())]
+        'SPX':[eval(SPX.get())],
+        'USO':[eval(USO.get())],
+        'SLV':[eval(SLV.get())],
+        'EUR/USD':[eval(EUR_to_USD_ratio.get())]
     }
     price=model.predict(pd.DataFrame(query_data))
     result.set(round(price[0],2))
